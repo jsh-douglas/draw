@@ -1,0 +1,305 @@
+:root {
+    --white: rgb(255, 255, 255);
+    --light-grey: rgb(192, 192, 192);
+    --dark-grey: rgba(64, 64, 64);
+    --black: rgb(0, 0, 0);
+    --red: rgb(255, 0, 0);
+    --dark-red: rgb(128, 0, 0);
+    --orange: rgb(255, 128, 0);
+    --dark-orange: rgb(128, 64, 0);
+    --yellow: rgb(255, 255, 0);
+    --dark-yellow: rgb(128, 128, 0);
+    --green: rgb(0, 255, 0);
+    --dark-green: rgb(0, 128, 0);
+    --cyan: rgb(0, 128, 255);
+    --dark-cyan: rgb(0, 64, 128);
+    --blue: rgb(0, 0, 255);
+    --dark-blue: rgb(0, 0, 128);
+    --indigo: rgb(128, 0, 255);
+    --dark-indigo: rgb(64, 0, 128);
+    --magenta: rgb(255, 0, 255);
+    --dark-magenta: rgb(128, 0, 128);
+    --brown: rgb(128, 64, 0);
+    --dark-brown: rgb(64, 32, 0);
+
+    --active-color: var(--black);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.draw-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.draw {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 50px;
+}
+
+    .draw__canvas-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .draw__canvas {
+            width: 800px;
+            height: 600px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+            border-radius: 10px;
+        }
+
+    .draw__toolbar {
+        width: 100%;
+        height: min-content;
+        display: grid;
+        grid-template-columns: repeat(4, min-content);
+        grid-gap: 25px;
+    }
+
+    .draw__toolbar > div {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+        .draw__color-select {
+            display: grid;
+            grid-template-rows: repeat(2, 25px);
+            grid-template-columns: repeat(11, 25px);
+            grid-gap: 5px;
+        }
+
+            .draw__color {
+                height: 100%;
+                width: 100%;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: 0.125s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                mix-blend-mode: difference;
+            }
+
+                .draw__color > i {
+                    height: min-content;
+                    font-size: 15px;
+                    opacity: 0;
+                    transition: 0.125s;
+                }
+
+                .draw__color > .draw__icon-dark {
+                    color: black;
+                }
+
+                .draw__color > .draw__icon-light {
+                    color: white;
+                }
+
+            .draw__color-input:checked + .draw__color {
+                transform: scale(0.9);
+            }
+
+            .draw__color-input:checked + .draw__color > i {
+                opacity: 1;
+            }
+
+            .draw__color-input {
+                display: none;
+            }
+
+            .draw__color--white {
+                background-color: var(--white);
+            }
+
+            .draw__color--light-grey {
+                background-color: var(--light-grey);
+            }
+
+            .draw__color--dark-grey {
+                background-color: var(--dark-grey);
+            }
+
+            .draw__color--black {
+                background-color: var(--black);
+            }
+
+            .draw__color--red {
+                background-color: var(--red);
+            }
+
+            .draw__color--dark-red {
+                background-color: var(--dark-red);
+            }
+
+            .draw__color--orange {
+                background-color: var(--orange);
+            }
+
+            .draw__color--dark-orange {
+                background-color: var(--dark-orange);
+            }
+
+            .draw__color--yellow {
+                background-color: var(--yellow);
+            }
+
+            .draw__color--dark-yellow {
+                background-color: var(--dark-yellow);
+            }
+
+            .draw__color--green {
+                background-color: var(--green);
+            }
+
+            .draw__color--dark-green {
+                background-color: var(--dark-green);
+            }
+
+            .draw__color--cyan {
+                background-color: var(--cyan);
+            }
+
+            .draw__color--dark-cyan {
+                background-color: var(--dark-cyan);
+            }
+
+            .draw__color--blue {
+                background-color: var(--blue);
+            }
+
+            .draw__color--dark-blue {
+                background-color: var(--dark-blue);
+            }
+
+            .draw__color--indigo {
+                background-color: var(--indigo);
+            }
+
+            .draw__color--dark-indigo {
+                background-color: var(--dark-indigo);
+            }
+
+            .draw__color--magenta {
+                background-color: var(--magenta);
+            }
+
+            .draw__color--dark-magenta {
+                background-color: var(--dark-magenta);
+            }
+
+            .draw__color--brown {
+                background-color: var(--brown);
+            }
+
+            .draw__color--dark-brown {
+                background-color: var(--dark-brown);
+            }
+        
+        .draw__tool-select {
+            display: grid;
+            grid-template-columns: repeat(3, 55px);
+            grid-gap: 5px;
+        }
+
+            .draw__tool-input {
+                display: none;
+            }
+
+            .draw__tool-input:checked + .draw__tool {
+                transform: scale(0.9);
+                background-color: rgb(215, 215, 215);
+            }
+
+                .draw__tool > i {
+                    font-size: 21px;
+                }
+            
+            .draw__tool:hover {
+                background-color: rgb(215, 215, 215);;
+            }
+
+        .draw__brush-select {
+            display: grid;
+            grid-template-columns: repeat(4, 55px);
+            grid-gap: 5px;
+        }
+
+            .draw__brush-input {
+                display: none
+            }
+            
+            .draw__brush-input:checked + .draw__brush {
+                transform: scale(0.9);
+                background-color: rgb(215, 215, 215);
+            }
+
+            .draw__brush, .draw__tool, .draw__delete {
+                height: 100%;
+                width: 100%;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.125s;
+                cursor: pointer;
+            }
+
+            .draw__brush:hover {
+                background-color: rgb(215, 215, 215);
+            }
+
+                .draw__brush-circle {
+                    background-color: var(--active-color);
+                    border-radius: 100%;
+                    transition: 0.25s;
+                }
+                
+                .draw__brush-circle--size-1 {
+                    width: 10px;
+                    height: 10px;
+                }
+
+                .draw__brush-circle--size-2 {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                .draw__brush-circle--size-3 {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .draw__brush-circle--size-4 {
+                    width: 40px;
+                    height: 40px;
+                }
+    
+        .draw__delete-select {
+            display: grid;
+            grid-template-columns: 55px;
+        }
+
+            .draw__delete:hover {
+                background-color: rgb(215, 215, 215);
+            }
+
+            .draw__delete:active {
+                transform: scale(0.9);
+            }
+
+                .draw__delete > i{
+                    font-size: 21px;
+                }                
